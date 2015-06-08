@@ -72,16 +72,10 @@ def get_youtube_trailer_url(movie_title):
         youtube_url = "https://www.youtube.com/watch?v=R7o1PnHas9M"
     return youtube_url
 
-# movie_info = get_movie_info("Inception")
-# inception = media.Movie(*movie_info)
-
-
-#favorite_movies = ["Tfwe0we0 fds"]
-# favorite_movies = ["The Terminator", "Terminator 2", "Terminator 3"]
 favorite_movies = ["Attack the Block","Borat", "Total Recall", "Kingsman", "Inglourious Basterds", "Battle Royale", "Starred Up", "Edge of Tomorrow", "Cabin in the Woods", "Run Lola Run", "Spirited Away", "The Internet's Own Boy", "It's a Disaster", "Rise of the Planet of the Apes", "Taken", "District 9", "Requiem for a Dream", "Oldboy","Avatar","Face/Off", "Guardians of the Galaxy", "Hostel", "John Wick", "Kill Bill", "Looper", "Moon", "Nightcrawler", "Prometheus", "Quantum of Solace", "Up", "V for Vendetta", "Warrior", "Wreck-it Ralph", "X-Men: First Class", "Your Highness", "Zombieland" ]
 favorite_movies.sort()
 
-
+# Download movie information and create list of Movie objects in movies:
 movies = []
 for movie in favorite_movies:
     print "Downloading " + movie + " information."
@@ -89,27 +83,5 @@ for movie in favorite_movies:
     movie_object = media.Movie(*movie_info)
     movies.append(movie_object)
 
+# Create HTML output file and display in web browser:
 fresh_tomatoes.open_movies_page(movies)
-
-
-
-
-# toy_story = media.Movie("Toy Story",
-# "A boy's toys come to life and have an adventure.",
-#                         "http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
-#                         "https://www.youtube.com/watch?v=KYz2wyBy3kc")
-#
-# avatar = media.Movie("Avatar",
-#                      "A boy falls in love with a blue girl.",
-#                      "http://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg",
-#                      "https://www.youtube.com/watch?v=5PSNL1qE6VY")
-#
-# kingsman = media.Movie("Kingsman - The Secret Service",
-#                        "A boy fights to save the world from a super-villain",
-#                        "http://upload.wikimedia.org/wikipedia/en/8/8b/Kingsman_The_Secret_Service_poster.jpg",
-#                        "https://www.youtube.com/watch?v=kl8F-8tR8to")
-#
-# mad_max = media.Movie("Mad Max - Fury Road",
-#                       "Mad Max travels along the furious road",
-#                       "http://upload.wikimedia.org/wikipedia/en/2/23/Max_Mad_Fury_Road_Newest_Poster.jpg",
-#                       "https://www.youtube.com/watch?v=hEJnMQG9ev8")
