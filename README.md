@@ -2,11 +2,12 @@
 
 This application creates an HTML summary of a list of movies, including the posters and links to the trailers. Given a list of movie titles, it downloads the relevant information and poster images using the omdb and YouTube APIs and outputs a static HTML page.
 
+See *static/example.html* for an example output.
+
 This is also Project 1 of the [Udacity Full Stack Nano Degree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004).
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 This project was started to meet the requirements of the Udacity Full Stack Nano Degree, and extended to be a tool to easily show lists of movie recommendations to my friends.
 
 ## Installation
@@ -14,7 +15,7 @@ This script is designed for python 2.7.6 and requires the following library asid
 *httplib2*
 
 Also, a (free) Google API key with the YouTube API enabled is required to search for the movie trailers on YouTube.  
-Replace `PLACEHOLDER GOOGLE API KEY` with your Google API key.
+Replace `PLACEHOLDER GOOGLE API KEY` in *entertainment_center.py* with your Google API key.
 
 
 ## Usage
