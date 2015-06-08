@@ -20,7 +20,7 @@ Replace `PLACEHOLDER GOOGLE API KEY` in *entertainment_center.py* with your Goog
 
 ## Usage
 
-Run *fresh_tomatoes.py* as it is (after entering your Google API key) to display an example output.
+Run *entertainment_center.py* as it is (after entering your Google API key) to display an example output.
 Edit the following line if your favourite movies differ from the ones displayed.  
 `favorite_movies = ["Attack the Block","Borat", "Total Recall", "Kingsman", ...]`
 
