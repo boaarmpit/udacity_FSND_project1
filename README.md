@@ -20,9 +20,9 @@ Replace `PLACEHOLDER GOOGLE API KEY` in *entertainment_center.py* with your Goog
 
 ## Usage
 
-Run *entertainment_center.py* as it is (after entering your Google API key) to display an example output.
-Edit the following line if your favourite movies differ from the ones displayed.  
-`favorite_movies = ["Attack the Block","Borat", "Total Recall", "Kingsman", ...]`
+Run *entertainment_center.py* (after entering your Google API key) 
+with a list of movie titles as arguments.  
+e.g. `> python entertainment_center.py "Attack the Block" "Borat" "Total Recall" ...`
 
 ## References
 This script includes example code from Udacity Full Stack Nano Degree *Programming Foundations with Python* course and css/javascript code from [bootstrap](http://getbootstrap.com/) and [jquery](https://jquery.com/).  Movie poster images in the *static/images* folder were acquired using the [omdb api](omdbapi.com) and belong to the respective copyright holders.

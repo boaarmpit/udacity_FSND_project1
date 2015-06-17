@@ -14,6 +14,7 @@ main_page_head = u'''
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/sticky-footer.css">
     <script src="js/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
@@ -105,7 +106,7 @@ main_page_content = u'''
         </div>
       </div>
     </div>
-    
+
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -119,6 +120,11 @@ main_page_content = u'''
     <div class="container">
       {movie_tiles}
     </div>
+    <footer class="footer navbar-inverse">
+        <div class="container text-center">
+            <p class="text-muted">All images are copyright to their respective owners.</p>
+        </div>
+    </footer>
   </body>
 </html>
 '''
@@ -136,15 +142,19 @@ def create_movie_tiles_content(movies):
     content = u''
     for movie in movies:
         # Extract the youtube ID from the url
-        youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
+        youtube_id_match = re.search(r'(?<=v=)[^&#]+',
+                                     movie.trailer_youtube_url)
+        youtube_id_match = \
+            youtube_id_match or re.search(r'(?<=be/)[^&#]+',
+                                          movie.trailer_youtube_url)
+        trailer_youtube_id = youtube_id_match.group(0) \
+            if youtube_id_match else None
 
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             poster_image_url=movie.poster_image_url,
-            movie_title=movie.title,
-            movie_storyline=movie.storyline,
+            movie_title=movie.title.replace('"', '&#34'),
+            movie_storyline=movie.storyline.replace('"', '&#34'),
             trailer_youtube_id=trailer_youtube_id
         )
     return content
@@ -154,8 +164,10 @@ def open_movies_page(movies):
     # Create or overwrite the output file
     output_file = codecs.open('static/index.html', 'w', encoding='utf-8')
 
-    # Replace the placeholder for the movie tiles with the actual dynamically generated content
-    rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies))
+    # Replace the placeholder for the movie tiles with
+    # the actual dynamically generated content
+    rendered_content = main_page_content.format(
+        movie_tiles=create_movie_tiles_content(movies))
 
     # Output the file
     output_file.write(main_page_head + rendered_content)
